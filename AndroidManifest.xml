@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.example.myandroid"
-      android:versionCode="1"
-      android:versionName="1.0">
-  <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
-    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
-android:debuggable="true" >
-        <activity android:name="aeTestActivity"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+	  package="com.example.myandroid"
+	  android:versionCode="1"
+	  android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="17" />
+  <!--
+    minSdkVersion changed from 8 to 11 to add Action Bar support on
+    devices v 3 and up
+  -->
+  <application android:label="@string/app_name" 	       android:icon="@drawable/ic_launcher"
+	       android:debuggable="true" >
+    <activity android:name="aeTestActivity"
+              android:label="@string/app_name">
+    <activity
+        android:name="com.example.myandroid.DisplayMessageActivity"
+        android:label="@string/title_activity_display_message"
+        android:parentActivityName="com.example.myandroid.aeTestActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.myandroid.aeTestActivity" />
+    </activity>
+
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category 	    android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
 </manifest>
